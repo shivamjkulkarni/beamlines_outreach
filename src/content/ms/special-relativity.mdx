@@ -1,0 +1,39 @@
+---
+title: "Relativiti Khas"
+---
+
+# Relativiti Khas
+
+Bayangkan anda berdiri di platform stesen kereta api, dan sebuah kereta api ekspres super laju melintas dengan pantas di hadapan anda. Jika anda entah bagaimana boleh melihat jam di dalam kereta api itu, dan mengukur kereta api itu sendiri semasa ia bergerak, apakah yang anda akan lihat?
+
+Sebelum Albert Einstein, ahli fizik percaya bahawa ruang dan masa adalah mutlak. Sebuah jam berdetik pada kelajuan yang sama di mana-mana, dan sebatang kayu satu meter sentiasa sepanjang satu meter.
+
+Tetapi Einstein menyedari sesuatu yang mengerikan: **Kelajuan cahaya adalah satu-satunya perkara yang mutlak di alam semesta.** Tidak kira betapa laju anda bergerak, cahaya sentiasa bergerak tepat pada 299,792,458 meter sesaat ($c$).
+
+Kerana kelajuan cahaya tidak boleh berubah, sesuatu yang lain *mesti* berubah. Apabila objek bergerak sangat laju (hampir $c$), **Ruang** termampat dan **Masa** menjadi perlahan!
+
+### Landasan Kereta Api Relativistik
+
+Kita akan mensimulasikan platform stesen kereta api di mana kereta api boleh bergerak sehingga 99% kelajuan cahaya. Kedua-dua anda (berdiri di platform) dan seorang penumpang (duduk di dalam kereta api) mempunyai jam randik yang sama.
+
+**Matlamat Anda:** Perhatikan bagaimana halaju yang melampau memesongkan realiti.
+*   **Langkah 1:** Lihat dua jam randik berdetik pada kelajuan biasa (`0.0c`). Mereka disegerakkan.
+*   **Langkah 2:** Tolak **Pendikit Halaju** sehingga tepat `0.5c` (separuh kelajuan cahaya). Apa yang berlaku pada jam kereta api? Apa yang berlaku pada bentuk kereta api?
+*   **Langkah 3:** Tolak pendikit ke `0.99c`. Perhatikan bagaimana kereta api termampat seperti lempeng, dan jam hampir berhenti! Ini dipanggil **Pengecutan Panjang** dan **Pemuluran Masa**.
+*   **Langkah 4:** Sekarang, klik butang **"Pandangan dari Kereta Api."** Secara tiba-tiba, penumpang kereta api fikir *dia* yang pegun, dan *platform* yang berundur dengan laju! Jam siapa yang berdetik lebih perlahan sekarang?
+
+<RelativisticTrain />
+
+<MathGate buttonText="Dedahkan Faktor Lorentz">
+  Jumlah herotan ditentukan oleh Faktor Lorentz, dilambangkan oleh $\gamma$ (gamma): $\gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}$. Apabila halaju ($v$) menghampiri kelajuan cahaya ($c$), $\gamma$ menghampiri infiniti. Masa untuk pemerhati yang bergerak dikira sebagai $t' = \frac{t}{\gamma}$, bermaksud ia menjadi sangat kecil (masa menjadi perlahan).
+</MathGate>
+
+### Titik Semakan
+
+Mari kita uji apa yang anda baru alami di landasan kereta api.
+
+<CheckpointQuiz 
+  question="Anda berdiri di platform, melihat sebuah kereta api melintas pada 99% kelajuan cahaya. Berbanding jam anda, apa yang berlaku pada jam di dalam kereta api?"
+  options='[{"text":"Ia berdetik jauh lebih laju daripada jam anda.","isCorrect":false},{"text":"Ia berdetik pada kelajuan yang sama dengan jam anda.","isCorrect":false},{"text":"Ia berdetik jauh lebih perlahan daripada jam anda.","isCorrect":true},{"text":"Ia berjalan ke belakang.","isCorrect":false}]'
+  explanation="Betul! Ini ialah Pemuluran Masa. Dari perspektif pemerhati yang pegun, masa bergerak dengan ketara lebih perlahan untuk objek yang bergerak hampir dengan kelajuan cahaya."
+/>

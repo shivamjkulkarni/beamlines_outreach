@@ -1,0 +1,39 @@
+---
+title: "États Quantiques"
+---
+
+# États Quantiques
+
+Les règles de la physique que nous avons discutées jusqu'ici s'appliquent aux grandes choses : voitures, aimants, pommes. Mais quand on zoome à l'échelle atomique, l'univers cesse d'avoir du sens.
+
+Bienvenue dans la Mécanique Quantique.
+
+Dans notre monde quotidien, les objets ont des formes définies. Une pièce posée sur une table est soit « Pile » soit « Face ». Mais dans le monde quantique, les particules existent dans un état appelé **Superposition**. Tant que vous ne les observez pas réellement, elles ne sont ni l'une ni l'autre ; elles sont une combinaison floue de *tous les états possibles à la fois*.
+
+Au lieu d'essayer d'imaginer une particule dans une boîte, imaginez une pièce qui tourne très vite en l'air. Tant qu'elle tourne, est-ce Pile ou Face ? Ni l'un ni l'autre ! C'est un mélange flou des deux.
+
+### Le Lancer Quantique de Pièce
+
+Faisons une expérience. Ci-dessous se trouve une pièce quantique en superposition.
+
+**Votre Objectif :** Observer le système.
+*   **Étape 1 :** Regardez la pièce qui tourne. C'est un mélange flou de probabilité.
+*   **Étape 2 :** Cliquez sur le bouton **« Attraper la Pièce »**. En interagissant avec elle (en l'observant), la « fonction d'onde » s'effondre instantanément. Elle est forcée de choisir un côté !
+*   **Étape 3 :** Lancez-la quelques fois pour voir que c'est aléatoire.
+*   **Étape 4 :** Une fois que vous l'avez attrapée 3 fois, cliquez sur l'onglet **« Lancer 100 Pièces d'un Coup »**. Que se passe-t-il quand une onde d'observation macroscopique force 100 superpositions à s'effondrer au même moment exact ?
+
+<QuantumCoin />
+
+<MathGate buttonText="Révéler l'Équation de Schrödinger">
+  Un état quantique est décrit par une fonction d'onde, $\Psi(x,t)$. Selon la Règle de Born, la probabilité de trouver une particule à une position spécifique est donnée par le carré de l'amplitude de sa fonction d'onde : $P(x) = |\Psi(x,t)|^2$. Avant la mesure, le système évolue de façon déterministe via l'Équation de Schrödinger : $i\hbar \frac{\partial}{\partial t}\Psi = \hat{H}\Psi$. Lors de la mesure, la fonction d'onde « s'effondre » en un seul état défini.
+</MathGate>
+
+### Point de Contrôle
+
+Vérifions votre compréhension de l'Effet de l'Observateur.
+
+<CheckpointQuiz 
+  question="Quand une particule quantique est en 'Superposition' (comme la pièce qui tourne), qu'est-ce que cela signifie ?"
+  options='[{"text":"Elle alterne rapidement entre les états.","isCorrect":false},{"text":"Elle existe comme une combinaison de tous les états possibles simultanément.","isCorrect":true},{"text":"Elle s`est endormie et a cessé de bouger.","isCorrect":false},{"text":"Nous n`avons simplement pas regardé assez attentivement pour voir son vrai état.","isCorrect":false}]'
+  explanation="Exact ! La superposition quantique n'est pas simplement 'nous ne connaissons pas encore l'état'—la particule existe littéralement comme un mélange flou de probabilités de tous les états jusqu'à ce qu'elle soit forcée de mathématiquement 'choisir' un état lors de l'observation."
+/>

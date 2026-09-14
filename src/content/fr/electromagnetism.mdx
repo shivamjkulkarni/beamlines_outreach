@@ -1,0 +1,39 @@
+---
+title: "Électromagnétisme"
+---
+
+# Électromagnétisme
+
+Dans la leçon précédente, nous avons utilisé des champs Électriques et Magnétiques pour construire un Accélérateur de Particules. Mais d'où viennent ces champs magiques ?
+
+Pendant des siècles, l'humanité a pensé que l'électricité (comme la foudre) et le magnétisme (comme les aiguilles de boussole) étaient des choses complètement différentes. Puis, un scientifique nommé Michael Faraday a réalisé qu'il s'agissait des deux faces de la même pièce : **l'Électromagnétisme**.
+
+Avez-vous déjà vu un vélo avec une petite lumière qui ne s'allume que lorsque vous pédalez ? Il n'y a pas de piles à l'intérieur ! Au lieu de cela, un aimant frotte contre une bobine de fil de cuivre. Lorsque vous pédalez, le *mouvement* de l'aimant force les électrons à l'intérieur du fil à bouger, créant ainsi de l'électricité.
+
+C'est ce qu'on appelle **l'Induction Électromagnétique**.
+
+### L'Expérience de la Dynamo
+
+Agissons comme une dynamo de vélo. Nous avons une bobine de cuivre attachée à une ampoule, et un aimant droit permanent.
+
+**Votre Objectif :** Générer suffisamment d'électricité pour allumer l'ampoule.
+*   **Étape 1 :** Saisissez l'aimant et laissez-le tomber à l'intérieur de la bobine de fil. Remarquez que le compteur (galvanomètre) ne bouge pas. Si l'aimant est *immobile*, aucune électricité n'est générée.
+*   **Étape 2 :** Maintenant, faites glisser l'aimant d'avant en arrière à travers la bobine. Remarquez que le compteur oscille !
+*   **Étape 3 :** Essayez de le faire glisser lentement, puis rapidement. **La vitesse compte.** Plus les lignes invisibles du champ magnétique coupent rapidement le fil de cuivre, plus le courant électrique est fort.
+*   **Étape 4 :** Frottez l'aimant d'avant en arrière aussi vite que vous le pouvez jusqu'à ce que l'ampoule brille de mille feux !
+
+<InductionCoil />
+
+<MathGate buttonText="Révéler la Loi de Faraday">
+  La loi de l'induction de Faraday stipule que la force électromotrice induite ($\mathcal{E}$) dans tout circuit fermé est égale à l'opposé du taux de variation temporelle du flux magnétique ($\Phi_B$) enfermé par le circuit : $\mathcal{E} = -N \frac{d\Phi_B}{dt}$. Plus le flux change vite (vitesse de l'aimant), plus la tension est élevée.
+</MathGate>
+
+### Point de Contrôle
+
+Testons votre compréhension de la façon dont l'électricité est générée.
+
+<CheckpointQuiz 
+  question="Si vous placez un aimant très puissant parfaitement immobile à l'intérieur d'une bobine de fil de cuivre, quelle quantité d'électricité sera générée ?"
+  options='[{"text":"Zéro. Rien ne se passe.","isCorrect":true},{"text":"Une petite quantité d`électricité.","isCorrect":false},{"text":"Une grande quantité d`électricité.","isCorrect":false}]'
+  explanation="C'est exact ! Un champ magnétique statique ne fait rien aux électrons. Le champ magnétique doit CHANGER (bouger) pour induire un courant électrique. Le mouvement est obligatoire !"
+/>

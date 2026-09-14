@@ -1,0 +1,39 @@
+---
+title: "Electromagnetismo"
+---
+
+# Electromagnetismo
+
+En la lección anterior, usamos campos Eléctricos y Magnéticos para construir un Acelerador de Partículas. Pero, ¿de dónde provienen estos campos mágicos?
+
+Durante siglos, la humanidad pensó que la electricidad (como los rayos) y el magnetismo (como las agujas de las brújulas) eran cosas completamente diferentes. Entonces, un científico llamado Michael Faraday se dio cuenta de que eran dos caras de la misma moneda exacta: el **Electromagnetismo**.
+
+¿Alguna vez has visto una bicicleta con una pequeña luz que solo se enciende cuando pedaleas? ¡No hay baterías adentro! En cambio, un imán frota contra una bobina de alambre de cobre. Mientras pedaleas, el *movimiento* del imán obliga a los electrones dentro del alambre a moverse, creando electricidad.
+
+Esto se llama **Inducción Electromagnética**.
+
+### El Experimento del Dinamo
+
+Actuemos como un dinamo de bicicleta. Tenemos una bobina de cobre conectada a una bombilla, y un imán de barra permanente.
+
+**Tu Objetivo:** Genera suficiente electricidad para encender la bombilla.
+*   **Paso 1:** Agarra el imán y déjalo caer dentro de la bobina de alambre. Nota que el medidor (galvanómetro) no se mueve. Si el imán está *quieto*, no se genera electricidad.
+*   **Paso 2:** Ahora, arrastra el imán de un lado a otro a través de la bobina. ¡Nota cómo el medidor oscila!
+*   **Paso 3:** Intenta arrastrarlo lentamente, y luego rápidamente. **La velocidad importa.** Cuanto más rápido cortan el alambre de cobre las líneas invisibles del campo magnético, más fuerte es la corriente eléctrica.
+*   **Paso 4:** ¡Frota el imán de un lado a otro tan rápido como puedas hasta que la bombilla brille con fuerza!
+
+<InductionCoil />
+
+<MathGate buttonText="Revelar la Ley de Faraday">
+  La Ley de Inducción de Faraday establece que la fuerza electromotriz inducida ($\mathcal{E}$) en cualquier circuito cerrado es igual al negativo de la tasa de cambio temporal del flujo magnético ($\Phi_B$) encerrado por el circuito: $\mathcal{E} = -N \frac{d\Phi_B}{dt}$. Cuanto más rápido cambia el flujo (velocidad del imán), mayor es el voltaje.
+</MathGate>
+
+### Punto de Control
+
+Pongamos a prueba tu comprensión sobre cómo generar electricidad.
+
+<CheckpointQuiz 
+  question="Si colocas un imán muy fuerte perfectamente quieto dentro de una bobina de alambre de cobre, ¿cuánta electricidad se generará?"
+  options='[{"text":"Cero. No pasa nada.","isCorrect":true},{"text":"Una pequeña cantidad de electricidad.","isCorrect":false},{"text":"Una gran cantidad de electricidad.","isCorrect":false}]'
+  explanation="¡Correcto! Un campo magnético estático no le hace nada a los electrones. El campo magnético debe estar CAMBIANDO (moviéndose) para inducir una corriente eléctrica. ¡Se requiere movimiento!"
+/>

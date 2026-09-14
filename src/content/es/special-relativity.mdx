@@ -1,0 +1,39 @@
+---
+title: "Relatividad Especial"
+---
+
+# Relatividad Especial
+
+Imagina que estás parado en una plataforma de tren, y un tren expreso súper rápido pasa volando frente a ti. Si de alguna manera pudieras ver el reloj dentro del tren, y medir el tren mismo mientras se movía, ¿qué verías?
+
+Antes de Albert Einstein, los físicos creían que el espacio y el tiempo eran absolutos. Un reloj marca al mismo ritmo en todas partes, y una barra de un metro siempre tiene un metro de largo.
+
+Pero Einstein se dio cuenta de algo aterrador: **La velocidad de la luz es la única cosa absoluta en el universo.** No importa cuán rápido te muevas, la luz siempre viaja exactamente a 299.792.458 metros por segundo ($c$).
+
+Porque la velocidad de la luz no puede cambiar, algo más *tiene que* cambiar. Cuando los objetos se mueven muy rápido (cerca de $c$), ¡el **Espacio** se aplasta y el **Tiempo** se ralentiza!
+
+### El Ferrocarril Relativista
+
+Vamos a simular una plataforma de tren donde el tren puede viajar hasta el 99% de la velocidad de la luz. Tanto tú (parado en la plataforma) como un pasajero (sentado en el tren) tienen cronómetros idénticos.
+
+**Tu Objetivo:** Observar cómo la velocidad extrema distorsiona la realidad.
+*   **Paso 1:** Mira los dos cronómetros marcando a velocidad normal (`0.0c`). Están sincronizados.
+*   **Paso 2:** Empuja el **Acelerador de Velocidad** hasta exactamente `0.5c` (la mitad de la velocidad de la luz). ¿Qué le pasa al reloj del tren? ¿Qué le pasa a la forma del tren?
+*   **Paso 3:** Empuja el acelerador hasta `0.99c`. ¡Nota cómo el tren se aplasta como un panqueque, y el reloj casi se detiene! Esto se llama **Contracción de Longitud** y **Dilatación del Tiempo**.
+*   **Paso 4:** Ahora, haz clic en el botón **"Ver desde el Tren."** ¡De repente, el pasajero del tren piensa que *él* está estacionario, y la *plataforma* retrocede a toda velocidad! ¿El reloj de quién marca más lento ahora?
+
+<RelativisticTrain />
+
+<MathGate buttonText="Revelar el Factor de Lorentz">
+  La cantidad de distorsión es determinada por el Factor de Lorentz, denotado por $\gamma$ (gamma): $\gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}$. A medida que la velocidad ($v$) se acerca a la velocidad de la luz ($c$), $\gamma$ se acerca al infinito. El tiempo para el observador en movimiento se calcula como $t' = \frac{t}{\gamma}$, lo que significa que se vuelve enormemente más pequeño (el tiempo se ralentiza).
+</MathGate>
+
+### Punto de Control
+
+Pongamos a prueba lo que acabas de experimentar en el ferrocarril.
+
+<CheckpointQuiz 
+  question="Estás parado en una plataforma, viendo un tren pasar a toda velocidad al 99% de la velocidad de la luz. Comparado con tu reloj, ¿qué le pasa a un reloj dentro del tren?"
+  options='[{"text":"Marca mucho más rápido que tu reloj.","isCorrect":false},{"text":"Marca exactamente a la misma velocidad que tu reloj.","isCorrect":false},{"text":"Marca mucho más lento que tu reloj.","isCorrect":true},{"text":"Va hacia atrás.","isCorrect":false}]'
+  explanation="¡Correcto! Esto es la Dilatación del Tiempo. Desde la perspectiva de un observador estacionario, el tiempo se mueve significativamente más lento para un objeto que viaja cerca de la velocidad de la luz."
+/>

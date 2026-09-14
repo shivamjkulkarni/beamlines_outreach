@@ -21,16 +21,18 @@ export function UnificationEpoch({ lang = 'en' }: { lang?: string }) {
 
     // Localization
     const t = {
-        title: lang === 'hi' ? 'एकीकरण युग' : 'The Unification Epoch',
-        desc: lang === 'hi' ? 'समय को बिग बैंग की तरफ पीछे धकेलें।' : 'Rewind time towards the Big Bang.',
-        energy: lang === 'hi' ? 'ब्रह्मांडीय ऊर्जा:' : 'Cosmic Energy:',
-        temp: lang === 'hi' ? 'तापमान:' : 'Temperature:',
-        strong: lang === 'hi' ? 'मजबूत बल' : 'Strong Force',
-        weak: lang === 'hi' ? 'कमजोर बल' : 'Weak Force',
-        em: lang === 'hi' ? 'विद्युत चुंबकत्व' : 'Electromagnetism',
-        success_title: lang === 'hi' ? 'भव्य एकीकरण (Grand Unification)' : 'Grand Unification',
-        success_desc: lang === 'hi' ? 'बधाई हो! आपने ब्रह्मांड के मूलभूत बलों को सफलतापूर्वक एकजुट कर लिया है। आपने भौतिकी पाठ्यक्रम पूरा कर लिया है!' : 'Congratulations! You have successfully unified the fundamental forces of the universe. You have completed the physics curriculum!',
-        gut_scale: lang === 'hi' ? 'GUT पैमाना' : 'GUT Scale'
+        title: lang === 'hi' ? 'एकीकरण युग' : lang === 'ms' ? 'Zaman Penyatuan' : lang === 'fr' ? "L'Époque de l'Unification" : lang === 'es' ? 'La Época de la Unificación' : 'The Unification Epoch',
+        desc: lang === 'hi' ? 'समय को बिग बैंग की तरफ पीछे धकेलें।' : lang === 'ms' ? 'Putar balik masa ke arah Letupan Besar.' : lang === 'fr' ? 'Remontez le temps vers le Big Bang.' : lang === 'es' ? 'Rebobina el tiempo hacia el Big Bang.' : 'Rewind time towards the Big Bang.',
+        energy: lang === 'hi' ? 'ब्रह्मांडीय ऊर्जा:' : lang === 'ms' ? 'Tenaga Kosmik:' : lang === 'fr' ? 'Énergie cosmique :' : lang === 'es' ? 'Energía cósmica:' : 'Cosmic Energy:',
+        temp: lang === 'hi' ? 'तापमान:' : lang === 'ms' ? 'Suhu:' : lang === 'fr' ? 'Température :' : lang === 'es' ? 'Temperatura:' : 'Temperature:',
+        strong: lang === 'hi' ? 'मजबूत बल' : lang === 'ms' ? 'Daya Kuat' : lang === 'fr' ? 'Force Forte' : lang === 'es' ? 'Fuerza Fuerte' : 'Strong Force',
+        weak: lang === 'hi' ? 'कमजोर बल' : lang === 'ms' ? 'Daya Lemah' : lang === 'fr' ? 'Force Faible' : lang === 'es' ? 'Fuerza Débil' : 'Weak Force',
+        em: lang === 'hi' ? 'विद्युत चुंबकत्व' : lang === 'ms' ? 'Elektromagnetisme' : lang === 'fr' ? 'Électromagnétisme' : lang === 'es' ? 'Electromagnetismo' : 'Electromagnetism',
+        success_title: lang === 'hi' ? 'भव्य एकीकरण (Grand Unification)' : lang === 'ms' ? 'Penyatuan Agung' : lang === 'fr' ? 'Grande Unification' : lang === 'es' ? 'Gran Unificación' : 'Grand Unification',
+        success_desc: lang === 'hi' ? 'बधाई हो! आपने ब्रह्मांड के मूलभूत बलों को सफलतापूर्वक एकजुट कर लिया है। आपने भौतिकी पाठ्यक्रम पूरा कर लिया है!' : lang === 'ms' ? 'Tahniah! Anda telah berjaya menyatukan daya asas alam semesta. Anda telah menamatkan kurikulum fizik!' : lang === 'fr' ? "Félicitations ! Vous avez unifié avec succès les forces fondamentales de l'univers. Vous avez terminé le cours de physique !" : lang === 'es' ? '¡Felicidades! Has unificado con éxito las fuerzas fundamentales del universo. ¡Has completado el plan de estudios de física!' : 'Congratulations! You have successfully unified the fundamental forces of the universe. You have completed the physics curriculum!',
+        gut_scale: lang === 'hi' ? 'GUT पैमाना' : lang === 'ms' ? 'Skala GUT' : lang === 'fr' ? 'Échelle GUT' : lang === 'es' ? 'Escala GUT' : 'GUT Scale',
+        rewind_time: lang === 'hi' ? 'समय को पीछे ले जाएं' : lang === 'ms' ? 'Putar Balik Masa' : lang === 'fr' ? 'Remonter le temps' : lang === 'es' ? 'Rebobinar el tiempo' : 'Rewind Time',
+        restart_universe: lang === 'hi' ? 'ब्रह्मांड पुनः आरंभ करें' : lang === 'ms' ? 'Mulakan Semula Alam Semesta' : lang === 'fr' ? "Redémarrer l'Univers" : lang === 'es' ? 'Reiniciar el Universo' : 'Restart Universe'
     }
 
     // Effect to mount dimensions
@@ -227,7 +229,7 @@ export function UnificationEpoch({ lang = 'en' }: { lang?: string }) {
                     </div>
                     {sliderPercent === 0 && (
                         <div className="absolute -top-8 text-xs font-bold text-white bg-blue-500 px-3 py-1 rounded-full animate-bounce whitespace-nowrap shadow-lg">
-                            Rewind Time
+                            {t.rewind_time}
                         </div>
                     )}
                 </motion.div>
@@ -260,7 +262,7 @@ export function UnificationEpoch({ lang = 'en' }: { lang?: string }) {
                         }}
                         className="px-10 py-5 bg-space-950 hover:bg-slate-900 border border-slate-800 rounded-full font-bold uppercase tracking-widest transition-all text-white shadow-2xl relative z-10"
                     >
-                        Restart Universe
+                        {t.restart_universe}
                     </button>
 
                     {/* Floating background physics runes */}

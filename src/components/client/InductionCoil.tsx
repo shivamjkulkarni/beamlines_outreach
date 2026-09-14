@@ -54,9 +54,10 @@ export function InductionCoil({ lang = 'en' }: { lang?: string }) {
     }, [x, isSuccess])
 
     const t = {
-        title: lang === 'hi' ? 'फैराडे का प्रेरण' : 'Faraday\'s Induction',
-        drag: lang === 'hi' ? 'चुंबक को ड्रैग करें' : 'Drag the Magnet',
-        success: lang === 'hi' ? 'शक्ति उत्पन्न! लाइटबल्ब चालू है।' : 'Power Generated! Lightbulb ON.'
+        title: lang === 'hi' ? 'फैराडे का प्रेरण' : lang === 'ms' ? 'Aruhan Faraday' : lang === 'fr' ? 'Induction de Faraday' : lang === 'es' ? 'Inducción de Faraday' : "Faraday's Induction",
+        drag: lang === 'hi' ? 'चुंबक को ड्रैग करें' : lang === 'ms' ? 'Seret Magnet' : lang === 'fr' ? "Faites glisser l'aimant" : lang === 'es' ? 'Arrastra el imán' : 'Drag the Magnet',
+        energy: lang === 'hi' ? 'ऊर्जा' : lang === 'ms' ? 'Tenaga' : lang === 'fr' ? 'Énergie' : lang === 'es' ? 'Energía' : 'Energy',
+        success: lang === 'hi' ? 'शक्ति उत्पन्न! लाइटबल्ब चालू है।' : lang === 'ms' ? 'Kuasa Dijana! Mentol Menyala.' : lang === 'fr' ? 'Énergie Générée ! Ampoule Allumée.' : lang === 'es' ? '¡Energía Generada! Bombilla Encendida.' : 'Power Generated! Lightbulb ON.'
     }
 
     // Dynamic Coil Glowing based on drag velocity
@@ -85,7 +86,7 @@ export function InductionCoil({ lang = 'en' }: { lang?: string }) {
 
                 {/* Spikes Counter UI */}
                 <div className="absolute top-1/2 -right-24 -translate-y-1/2 text-xs font-mono text-slate-500 whitespace-nowrap">
-                    Energy: <span className={isSuccess ? 'text-amber-400' : 'text-slate-300'}>{totalSpikes}</span> / 80
+                    {t.energy}: <span className={isSuccess ? 'text-amber-400' : 'text-slate-300'}>{totalSpikes}</span> / 80
                 </div>
             </div>
 

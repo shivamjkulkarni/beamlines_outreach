@@ -8,11 +8,22 @@ interface MathGateProps {
     children: React.ReactNode
     buttonText?: string
     topicId?: string
+    lang?: string
 }
 
-export function MathGate({ children, buttonText = "See the Math", topicId = "standard-model" }: MathGateProps) {
+export function MathGate({ children, buttonText, topicId = "standard-model", lang = "en" }: MathGateProps) {
     const [isOpen, setIsOpen] = useState(false)
     const { incrementProgress } = useAppStore()
+
+    const defaultLabels: Record<string, { show: string, hide: string }> = {
+        en: { show: 'See the Math', hide: 'Hide Math' },
+        hi: { show: 'गणित देखें', hide: 'गणित छुपाएं' },
+        ms: { show: 'Lihat Matematik', hide: 'Sembunyikan Matematik' },
+        fr: { show: 'Voir les mathématiques', hide: 'Masquer les calculs' },
+        es: { show: 'Ver las matemáticas', hide: 'Ocultar matemáticas' }
+    }
+    const currentLabels = defaultLabels[lang] || defaultLabels['en']
+    const labelText = isOpen ? currentLabels.hide : (buttonText || currentLabels.show)
 
     const handleToggle = () => {
         const newState = !isOpen
@@ -33,7 +44,7 @@ export function MathGate({ children, buttonText = "See the Math", topicId = "sta
             >
                 <div className={`w-2 h-2 rounded-full bg-neon-violet shadow-[0_0_8px_rgba(139,92,246,0.8)] transition-transform duration-300 ${isOpen ? 'scale-150' : ''}`} />
                 <span className="text-sm font-semibold text-neon-violet group-hover:text-white transition-colors">
-                    {isOpen ? "Hide Math" : buttonText}
+                    {labelText}
                 </span>
             </button>
 

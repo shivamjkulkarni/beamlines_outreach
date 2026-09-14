@@ -51,13 +51,15 @@ export function RelativisticTrain({ lang = 'en' }: { lang?: string }) {
     }, [velocityC, isSuccess])
 
     const t = {
-        title: lang === 'hi' ? 'सापेक्षिक रेलवे' : 'The Relativistic Railway',
-        throttle: lang === 'hi' ? 'ट्रेन थ्रॉटल (Train Throttle)' : 'Train Throttle',
-        viewPlat: lang === 'hi' ? 'प्लेटफ़ॉर्म से देखें' : 'View from Platform',
-        viewTrain: lang === 'hi' ? 'ट्रेन से देखें' : 'View from Train',
-        platStat: lang === 'hi' ? 'स्थिर प्लेटफ़ॉर्म घड़ी' : 'Stationary Platform Clock',
-        trainClock: lang === 'hi' ? 'ट्रेन की घड़ी' : 'Train Clock',
-        success: lang === 'hi' ? 'समय फैलाव सिद्ध हुआ! (Twin Paradox)' : 'Time Dilation Proven! (Twin Paradox)'
+        title: lang === 'hi' ? 'सापेक्षिक रेलवे' : lang === 'ms' ? 'Kereta Api Kerelatifan' : lang === 'fr' ? 'Le Chemin de Fer Relativiste' : lang === 'es' ? 'El Ferrocarril Relativista' : 'The Relativistic Railway',
+        throttle: lang === 'hi' ? 'ट्रेन थ्रॉटल (Train Throttle)' : lang === 'ms' ? 'Pendikit Kereta Api' : lang === 'fr' ? 'Accélérateur du Train' : lang === 'es' ? 'Acelerador del Tren' : 'Train Throttle',
+        viewPlat: lang === 'hi' ? 'प्लेटफ़ॉर्म से देखें' : lang === 'ms' ? 'Lihat dari Platform' : lang === 'fr' ? 'Vue du Quai' : lang === 'es' ? 'Ver desde el Andén' : 'View from Platform',
+        viewTrain: lang === 'hi' ? 'ट्रेन से देखें' : lang === 'ms' ? 'Lihat dari Kereta Api' : lang === 'fr' ? 'Vue du Train' : lang === 'es' ? 'Ver desde el Tren' : 'View from Train',
+        platStat: lang === 'hi' ? 'स्थिर प्लेटफ़ॉर्म घड़ी' : lang === 'ms' ? 'Jam Platform Pegun' : lang === 'fr' ? 'Horloge Stationnaire du Quai' : lang === 'es' ? 'Reloj Estacionario del Andén' : 'Stationary Platform Clock',
+        trainClock: lang === 'hi' ? 'ट्रेन की घड़ी' : lang === 'ms' ? 'Jam Kereta Api' : lang === 'fr' ? 'Horloge du Train' : lang === 'es' ? 'Reloj del Tren' : 'Train Clock',
+        framePlat: lang === 'hi' ? 'प्लेटफ़ॉर्म संदर्भ फ्रेम' : lang === 'ms' ? 'Kerangka Rujukan Platform' : lang === 'fr' ? 'Référentiel du Quai' : lang === 'es' ? 'Marco de Referencia del Andén' : 'Platform Reference Frame',
+        frameTrain: lang === 'hi' ? 'ट्रेन संदर्भ फ्रेम' : lang === 'ms' ? 'Kerangka Rujukan Kereta Api' : lang === 'fr' ? 'Référentiel du Train' : lang === 'es' ? 'Marco de Referencia del Tren' : 'Train Reference Frame',
+        success: lang === 'hi' ? 'समय फैलाव सिद्ध हुआ! (Twin Paradox)' : lang === 'ms' ? 'Dilatasi Masa Terbukti! (Paradoks Kembar)' : lang === 'fr' ? 'Dilatation du Temps Prouvée ! (Paradoxe des Jumeaux)' : lang === 'es' ? '¡Dilatación del Tiempo Demostrada! (Paradoja de los Gemelos)' : 'Time Dilation Proven! (Twin Paradox)'
     }
 
     // Length contraction logic depending on perspective.
@@ -167,7 +169,7 @@ export function RelativisticTrain({ lang = 'en' }: { lang?: string }) {
 
                     {/* Perspective Label overlay */}
                     <div className="absolute top-4 right-4 bg-black/50 text-white/50 text-xs px-2 py-1 rounded backdrop-blur border border-white/5 font-mono z-30 tracking-widest uppercase">
-                        {perspective === 'platform' ? 'Platform Reference Frame' : 'Train Reference Frame'}
+                        {perspective === 'platform' ? t.framePlat : t.frameTrain}
                     </div>
                 </div>
 

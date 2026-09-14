@@ -38,14 +38,14 @@ export function GravityCarousel({ lang = 'en' }: { lang?: string }) {
 
     // Localization Helpers
     const t = {
-        title: lang === 'hi' ? 'गुरुत्वाकर्षण हिंडोला' : 'The Gravity Carousel',
-        desc: lang === 'hi' ? 'गैलेक्सी के घूमने की गति को नियंत्रित करें।' : 'Control the rotation speed of the galaxy.',
-        speedLabel: lang === 'hi' ? 'घूमने की गति:' : 'Rotation Speed:',
-        dmLabel: lang === 'hi' ? 'डार्क मैटर हेलो इंजेक्ट करें' : 'Inject Dark Matter Halo',
-        dmActive: lang === 'hi' ? 'डार्क मैटर सक्रिय!' : 'Dark Matter Active!',
-        warning: lang === 'hi' ? 'चेतावनी: बहुत तेज़! गुरुत्वाकर्षण टूट रहा है!' : 'WARNING: TOO FAST! Gravity is failing!',
-        stable: lang === 'hi' ? 'स्थिर गुरुत्वाकर्षण क्षेत्र' : 'Stable Gravitational Field',
-        success: lang === 'hi' ? 'अदृश्य गुरुत्वाकर्षण ने गैलेक्सी को बचा लिया!' : 'The invisible gravity saved the galaxy!'
+        title: lang === 'hi' ? 'गुरुत्वाकर्षण हिंडोला' : lang === 'ms' ? 'Karusel Graviti' : lang === 'fr' ? 'Le Carrousel Gravitationnel' : lang === 'es' ? 'El Carrusel Gravitatorio' : 'The Gravity Carousel',
+        desc: lang === 'hi' ? 'गैलेक्सी के घूमने की गति को नियंत्रित करें।' : lang === 'ms' ? 'Kawal kelajuan putaran galaksi.' : lang === 'fr' ? 'Contrôlez la vitesse de rotation de la galaxie.' : lang === 'es' ? 'Controla la velocidad de rotación de la galaxia.' : 'Control the rotation speed of the galaxy.',
+        speedLabel: lang === 'hi' ? 'घूमने की गति:' : lang === 'ms' ? 'Kelajuan Putaran:' : lang === 'fr' ? 'Vitesse de rotation :' : lang === 'es' ? 'Velocidad de rotación:' : 'Rotation Speed:',
+        dmLabel: lang === 'hi' ? 'डार्क मैटर हेलो इंजेक्ट करें' : lang === 'ms' ? 'Suntik Halo Jirim Gelap' : lang === 'fr' ? 'Injecter un halo de matière noire' : lang === 'es' ? 'Inyectar halo de materia oscura' : 'Inject Dark Matter Halo',
+        dmActive: lang === 'hi' ? 'डार्क मैटर सक्रिय!' : lang === 'ms' ? 'Jirim Gelap Aktif!' : lang === 'fr' ? 'Matière noire active !' : lang === 'es' ? '¡Materia oscura activa!' : 'Dark Matter Active!',
+        warning: lang === 'hi' ? 'चेतावनी: बहुत तेज़! गुरुत्वाकर्षण टूट रहा है!' : lang === 'ms' ? 'AMARAN: TERLALU PANTAS! Graviti gagal!' : lang === 'fr' ? 'ATTENTION : TROP RAPIDE ! La gravité faiblit !' : lang === 'es' ? '¡ADVERTENCIA: DEMASIADO RÁPIDO! ¡La gravedad está fallando!' : 'WARNING: TOO FAST! Gravity is failing!',
+        stable: lang === 'hi' ? 'स्थिर गुरुत्वाकर्षण क्षेत्र' : lang === 'ms' ? 'Medan Graviti Stabil' : lang === 'fr' ? 'Champ gravitationnel stable' : lang === 'es' ? 'Campo gravitatorio estable' : 'Stable Gravitational Field',
+        success: lang === 'hi' ? 'अदृश्य गुरुत्वाकर्षण ने गैलेक्सी को बचा लिया!' : lang === 'ms' ? 'Graviti halimunan menyelamatkan galaksi!' : lang === 'fr' ? 'La gravité invisible a sauvé la galaxie !' : lang === 'es' ? '¡La gravedad invisible salvó a la galaxia!' : 'The invisible gravity saved the galaxy!'
     }
 
     // Initialize Stars

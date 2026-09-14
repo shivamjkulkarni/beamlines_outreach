@@ -17,14 +17,17 @@ export function QuantumCoin({ lang = 'en' }: { lang?: string }) {
     const [waveProgress, setWaveProgress] = useState(0) // 0 to 100
 
     const t = {
-        title: lang === 'hi' ? 'क्वांटम सिक्का उछाल' : 'The Quantum Coin Toss',
-        catch: lang === 'hi' ? 'सिक्का पकड़ो' : 'Catch the Coin',
-        reset: lang === 'hi' ? 'फिर से उछालो' : 'Toss Again',
-        unlock: lang === 'hi' ? '100 सिक्के उछालें' : 'Toss 100 Coins at Once',
-        heads: lang === 'hi' ? 'चित (Heads)' : 'Heads',
-        tails: lang === 'hi' ? 'पट (Tails)' : 'Tails',
-        macroBtn: lang === 'hi' ? 'अवलोकन तरंग भेजें' : 'Send Observation Wave',
-        stats: lang === 'hi' ? 'सांख्यिकीय वितरण' : 'Statistical Distribution'
+        title: lang === 'hi' ? 'क्वांटम सिक्का उछाल' : lang === 'ms' ? 'Lontaran Syiling Kuantum' : lang === 'fr' ? 'Le Lancer de Pièce Quantique' : lang === 'es' ? 'El Lanzamiento de Moneda Cuántica' : 'The Quantum Coin Toss',
+        singleCoin: lang === 'hi' ? 'एकल सिक्का' : lang === 'ms' ? 'Syiling Tunggal' : lang === 'fr' ? 'Pièce Unique' : lang === 'es' ? 'Moneda Única' : 'Single Coin',
+        catch: lang === 'hi' ? 'सिक्का पकड़ो' : lang === 'ms' ? 'Tangkap Syiling' : lang === 'fr' ? 'Attraper la Pièce' : lang === 'es' ? 'Atrapar la Moneda' : 'Catch the Coin',
+        reset: lang === 'hi' ? 'फिर से उछालो' : lang === 'ms' ? 'Lontar Semula' : lang === 'fr' ? 'Relancer' : lang === 'es' ? 'Lanzar de Nuevo' : 'Toss Again',
+        unlock: lang === 'hi' ? '100 सिक्के उछालें' : lang === 'ms' ? 'Lontar 100 Syiling Serentak' : lang === 'fr' ? 'Lancer 100 Pièces à la Fois' : lang === 'es' ? 'Lanzar 100 Monedas a la Vez' : 'Toss 100 Coins at Once',
+        heads: lang === 'hi' ? 'चित (Heads)' : lang === 'ms' ? 'Kepala' : lang === 'fr' ? 'Face' : lang === 'es' ? 'Cara' : 'Heads',
+        tails: lang === 'hi' ? 'पट (Tails)' : lang === 'ms' ? 'Ekor' : lang === 'fr' ? 'Pile' : lang === 'es' ? 'Cruz' : 'Tails',
+        up: lang === 'hi' ? 'ऊपर' : lang === 'ms' ? 'Atas' : lang === 'fr' ? 'Haut' : lang === 'es' ? 'Arriba' : 'Up',
+        down: lang === 'hi' ? 'नीचे' : lang === 'ms' ? 'Bawah' : lang === 'fr' ? 'Bas' : lang === 'es' ? 'Abajo' : 'Down',
+        macroBtn: lang === 'hi' ? 'अवलोकन तरंग भेजें' : lang === 'ms' ? 'Hantar Gelombang Pemerhatian' : lang === 'fr' ? "Envoyer l'Onde d'Observation" : lang === 'es' ? 'Enviar Onda de Observación' : 'Send Observation Wave',
+        stats: lang === 'hi' ? 'सांख्यिकीय वितरण' : lang === 'ms' ? 'Taburan Statistik' : lang === 'fr' ? 'Distribution Statistique' : lang === 'es' ? 'Distribución Estadística' : 'Statistical Distribution'
     }
 
     // Single Coin Logic
@@ -109,7 +112,7 @@ export function QuantumCoin({ lang = 'en' }: { lang?: string }) {
                         onClick={() => setMode('single')}
                         className={`px-4 py-2 rounded-lg text-sm font-bold transition-all ${mode === 'single' ? 'bg-violet-600 text-white' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'}`}
                     >
-                        Single Coin
+                        {t.singleCoin}
                     </button>
                     <button
                         onClick={() => setMode('macro')}
@@ -146,7 +149,7 @@ export function QuantumCoin({ lang = 'en' }: { lang?: string }) {
                                     className="absolute inset-0 rounded-full border-4 border-blue-400 bg-blue-500 shadow-[0_0_40px_rgba(59,130,246,0.8)] flex flex-col items-center justify-center text-white font-bold"
                                 >
                                     <span className="text-3xl">H</span>
-                                    <span className="text-xs uppercase opacity-70">Up</span>
+                                    <span className="text-xs uppercase opacity-70">{t.up}</span>
                                 </motion.div>
                             )}
 
@@ -158,7 +161,7 @@ export function QuantumCoin({ lang = 'en' }: { lang?: string }) {
                                     className="absolute inset-0 rounded-full border-4 border-red-400 bg-red-500 shadow-[0_0_40px_rgba(239,68,68,0.8)] flex flex-col items-center justify-center text-white font-bold"
                                 >
                                     <span className="text-3xl">T</span>
-                                    <span className="text-xs uppercase opacity-70">Down</span>
+                                    <span className="text-xs uppercase opacity-70">{t.down}</span>
                                 </motion.div>
                             )}
                         </AnimatePresence>
@@ -228,8 +231,8 @@ export function QuantumCoin({ lang = 'en' }: { lang?: string }) {
                             </div>
                             {/* Labels */}
                             <div className="absolute -bottom-5 w-full flex justify-between px-[20%] text-[10px] uppercase font-bold text-slate-500">
-                                <span className="text-blue-400">Heads: {macroHeads}</span>
-                                <span className="text-red-400">Tails: {macroTails}</span>
+                                <span className="text-blue-400">{t.heads}: {macroHeads}</span>
+                                <span className="text-red-400">{t.tails}: {macroTails}</span>
                             </div>
                         </div>
 

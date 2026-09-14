@@ -80,11 +80,13 @@ export function Cyclotron({ lang = 'en' }: { lang?: string }) {
     }, [isSuccess])
 
     const t = {
-        title: lang === 'hi' ? 'साइक्लोट्रॉन ट्यूनिंग' : 'Cyclotron Tuning',
-        elec: lang === 'hi' ? 'विद्युत क्षेत्र (गति)' : 'Electric Field (Speed)',
-        mag: lang === 'hi' ? 'चुंबकीय क्षेत्र (स्टीयरिंग)' : 'Magnetic Field (Steering)',
-        success: lang === 'hi' ? 'अनुनाद प्राप्त हुआ! कण उत्सर्जित।' : 'Resonance Achieved! Particle Ejected.',
-        fail: lang === 'hi' ? 'सिंक्रनाइज़ेशन खो गया. दीवार से टकराव!' : 'Desynchronization. Wall Collision!'
+        title: lang === 'hi' ? 'साइक्लोट्रॉन ट्यूनिंग' : lang === 'ms' ? 'Penalaan Siklotron' : lang === 'fr' ? 'Réglage du Cyclotron' : lang === 'es' ? 'Ajuste del Ciclotrón' : 'Cyclotron Tuning',
+        subtitle: lang === 'hi' ? 'प्रक्षेपवक्र दृश्य' : lang === 'ms' ? 'Penyelaras Trajektori' : lang === 'fr' ? 'Visualiseur de Trajectoire' : lang === 'es' ? 'Visualizador de Trayectoria' : 'Trajectory Visualizer',
+        elec: lang === 'hi' ? 'विद्युत क्षेत्र (गति)' : lang === 'ms' ? 'Medan Elektrik (Kelajuan)' : lang === 'fr' ? 'Champ Électrique (Vitesse)' : lang === 'es' ? 'Campo Eléctrico (Velocidad)' : 'Electric Field (Speed)',
+        mag: lang === 'hi' ? 'चुंबकीय क्षेत्र (स्टीयरिंग)' : lang === 'ms' ? 'Medan Magnet (Kemudi)' : lang === 'fr' ? 'Champ Magnétique (Guidage)' : lang === 'es' ? 'Campo Magnético (Dirección)' : 'Magnetic Field (Steering)',
+        success: lang === 'hi' ? 'अनुनाद प्राप्त हुआ! कण उत्सर्जित।' : lang === 'ms' ? 'Resonans Dicapai! Zarah Dikeluarkan.' : lang === 'fr' ? 'Résonance Atteinte ! Particule Éjectée.' : lang === 'es' ? '¡Resonancia Alcanzada! Partícula Expulsada.' : 'Resonance Achieved! Particle Ejected.',
+        fail: lang === 'hi' ? 'सिंक्रनाइज़ेशन खो गया. दीवार से टकराव!' : lang === 'ms' ? 'Penyahsegerakan. Perlanggaran Dinding!' : lang === 'fr' ? 'Désynchronisation. Collision avec la paroi !' : lang === 'es' ? '¡Desincronización! ¡Colisión con la pared!' : 'Desynchronization. Wall Collision!',
+        exit: lang === 'hi' ? 'निकास' : lang === 'ms' ? 'KELUAR' : lang === 'fr' ? 'SORTIE' : lang === 'es' ? 'SALIDA' : 'EXIT'
     }
 
     // Determine trail color (Orange if advancing too fast radially, Blue if steering tightly)
@@ -94,7 +96,7 @@ export function Cyclotron({ lang = 'en' }: { lang?: string }) {
         <div className="w-full max-w-2xl mx-auto my-12 backdrop-blur-xl bg-slate-900/50 p-6 md:p-8 rounded-[2rem] border border-slate-700/50 shadow-2xl group">
             <h3 className="text-xl md:text-2xl font-display font-medium text-white mb-6 text-center tracking-wide">
                 {t.title}
-                <span className="block text-xs text-slate-400 mt-2 font-sans uppercase tracking-[0.2em] font-medium">Trajectory Visualizer</span>
+                <span className="block text-xs text-slate-400 mt-2 font-sans uppercase tracking-[0.2em] font-medium">{t.subtitle}</span>
             </h3>
 
             {/* SVG CYCLOTRON DISPLAY - Explicitly Flat and Clear */}
@@ -126,7 +128,7 @@ export function Cyclotron({ lang = 'en' }: { lang?: string }) {
 
                     {/* Ejection Port (Right edge) */}
                     <rect x="260" y="140" width="30" height="20" fill={isSuccess ? '#22c55e' : '#334155'} filter={isSuccess ? 'url(#neonGlow)' : ''} className="transition-colors duration-500" />
-                    <text x="280" y="165" fill={isSuccess ? '#4ade80' : '#64748b'} fontSize="10" fontFamily="sans-serif" textAnchor="middle" fontWeight="bold">EXIT</text>
+                    <text x="280" y="165" fill={isSuccess ? '#4ade80' : '#64748b'} fontSize="10" fontFamily="sans-serif" textAnchor="middle" fontWeight="bold">{t.exit}</text>
 
                     {/* Left Dee (D-Shape) */}
                     <path

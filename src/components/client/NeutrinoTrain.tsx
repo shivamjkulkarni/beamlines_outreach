@@ -9,15 +9,29 @@ type Flavor = 'electron' | 'muon' | 'tau'
 interface FlavorProfile {
     id: Flavor
     color: string
-    label_en: string
-    label_hi: string
+    labels: Record<string, string>
     symbol: string
 }
 
 const FLAVORS: Record<Flavor, FlavorProfile> = {
-    electron: { id: 'electron', color: '#ef4444', label_en: 'Electron', label_hi: 'इलेक्ट्रॉन', symbol: 've' },
-    muon: { id: 'muon', color: '#3b82f6', label_en: 'Muon', label_hi: 'मुऑन', symbol: 'vμ' },
-    tau: { id: 'tau', color: '#10b981', label_en: 'Tau', label_hi: 'ताउ', symbol: 'vτ' },
+    electron: {
+        id: 'electron',
+        color: '#ef4444',
+        labels: { en: 'Electron', hi: 'इलेक्ट्रॉन', ms: 'Elektron', fr: 'Électron', es: 'Electrón' },
+        symbol: 've'
+    },
+    muon: {
+        id: 'muon',
+        color: '#3b82f6',
+        labels: { en: 'Muon', hi: 'म्यूऑन', ms: 'Muon', fr: 'Muon', es: 'Muón' },
+        symbol: 'vμ'
+    },
+    tau: {
+        id: 'tau',
+        color: '#10b981',
+        labels: { en: 'Tau', hi: 'ताउ', ms: 'Tau', fr: 'Tau', es: 'Tau' },
+        symbol: 'vτ'
+    },
 }
 
 export function NeutrinoTrain({ lang = 'en' }: { lang?: string }) {
@@ -37,14 +51,16 @@ export function NeutrinoTrain({ lang = 'en' }: { lang?: string }) {
 
     // Translators
     const t = {
-        title: lang === 'hi' ? 'द जादुई कम्यूटर' : 'The Magic Commuter',
-        desc: lang === 'hi' ? 'डिटेक्टर रखें और न्यूट्रिनो फायर करें।' : 'Position the detector and fire the neutrino.',
-        fire: lang === 'hi' ? 'फायर न्यूट्रिनो!' : 'Fire Neutrino!',
-        reset: lang === 'hi' ? 'पुनर्स्थापित करें' : 'Reset Experiment',
-        detector: lang === 'hi' ? 'खुदाई' : 'Detector',
-        caught: lang === 'hi' ? 'पकड़ा गया:' : 'Measurement:',
-        wave: lang === 'hi' ? 'सम्भाव्यता तरंग' : 'Probability Wave',
-        success: lang === 'hi' ? 'पहचान बदल गई! न्यूट्रिनो में द्रव्यमान होता है!' : 'Identity shifted! The neutrino has mass!'
+        title: lang === 'hi' ? 'द जादुई कम्यूटर' : lang === 'ms' ? 'Komuter Ajaib' : lang === 'fr' ? 'Le Voyageur Magique' : lang === 'es' ? 'El Viajero Mágico' : 'The Magic Commuter',
+        desc: lang === 'hi' ? 'डिटेक्टर रखें और न्यूट्रिनो फायर करें।' : lang === 'ms' ? 'Letakkan pengesan dan tembak neutrino.' : lang === 'fr' ? 'Positionnez le détecteur et tirez le neutrino.' : lang === 'es' ? 'Posiciona el detector y dispara el neutrino.' : 'Position the detector and fire the neutrino.',
+        fire: lang === 'hi' ? 'फायर न्यूट्रिनो!' : lang === 'ms' ? 'Tembak Neutrino!' : lang === 'fr' ? 'Tirer le Neutrino !' : lang === 'es' ? '¡Disparar Neutrino!' : 'Fire Neutrino!',
+        reset: lang === 'hi' ? 'पुनर्स्थापित करें' : lang === 'ms' ? 'Tetapkan Semula' : lang === 'fr' ? "Réinitialiser" : lang === 'es' ? 'Reiniciar' : 'Reset Experiment',
+        detector: lang === 'hi' ? 'डिटेक्टर' : lang === 'ms' ? 'Pengesan' : lang === 'fr' ? 'Détecteur' : lang === 'es' ? 'Detector' : 'Detector',
+        caught: lang === 'hi' ? 'माप:' : lang === 'ms' ? 'Pengukuran:' : lang === 'fr' ? 'Mesure :' : lang === 'es' ? 'Medición:' : 'Measurement:',
+        wave: lang === 'hi' ? 'सम्भाव्यता तरंग' : lang === 'ms' ? 'Gelombang Kebarangkalian' : lang === 'fr' ? 'Onde de Probabilité' : lang === 'es' ? 'Onda de Probabilidad' : 'Probability Wave',
+        systemReady: lang === 'hi' ? 'सिस्टम तैयार' : lang === 'ms' ? 'Sistem Sedia' : lang === 'fr' ? 'Système Prêt' : lang === 'es' ? 'Sistema Listo' : 'System Ready',
+        neutrinoWord: lang === 'hi' ? 'न्यूट्रिनो' : 'Neutrino',
+        success: lang === 'hi' ? 'पहचान बदल गई! न्यूट्रिनो में द्रव्यमान होता है!' : lang === 'ms' ? 'Identiti berubah! Neutrino mempunyai jisim!' : lang === 'fr' ? 'Identité modifiée ! Le neutrino a une masse !' : lang === 'es' ? '¡Identidad cambiada! ¡El neutrino tiene masa!' : 'Identity shifted! The neutrino has mass!'
     }
 
     // Probability Math based on distance
@@ -246,11 +262,11 @@ export function NeutrinoTrain({ lang = 'en' }: { lang?: string }) {
                             <div className="flex flex-col">
                                 <span className="text-xs text-slate-400 uppercase font-bold tracking-widest mb-1">{t.caught}</span>
                                 <span className="text-xl font-bold" style={{ color: FLAVORS[detectedFlavor].color }}>
-                                    {lang === 'hi' ? FLAVORS[detectedFlavor].label_hi : FLAVORS[detectedFlavor].label_en} Neutrino
+                                    {FLAVORS[detectedFlavor].labels[lang] || FLAVORS[detectedFlavor].labels['en']} {t.neutrinoWord}
                                 </span>
                             </div>
                         ) : (
-                            <span className="text-sm text-slate-500 italic font-mono uppercase tracking-widest flex items-center justify-center h-full">System Ready</span>
+                            <span className="text-sm text-slate-500 italic font-mono uppercase tracking-widest flex items-center justify-center h-full">{t.systemReady}</span>
                         )}
                     </div>
                 </div>

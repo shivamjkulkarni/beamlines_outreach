@@ -36,11 +36,47 @@ export function CheckpointQuiz(props: CheckpointQuizProps) {
     const [isRevealed, setIsRevealed] = useState(false)
 
     const t = {
-        title: lang === 'hi' ? 'ज्ञान की जांच' : 'Knowledge Checkpoint',
-        checkBtn: lang === 'hi' ? 'उत्तर जांचें' : 'Check Answer',
-        correct: lang === 'hi' ? 'सही जवाब!' : 'Correct!',
-        incorrect: lang === 'hi' ? 'फिर से कोशिश करें' : 'Incorrect. Try again.',
-        explanationTitle: lang === 'hi' ? 'व्याख्या:' : 'Explanation:'
+        en: {
+            title: 'Knowledge Checkpoint',
+            checkBtn: 'Check Answer',
+            correct: 'Correct!',
+            incorrect: 'Incorrect. Try again.',
+            explanationTitle: 'Explanation:'
+        },
+        hi: {
+            title: 'ज्ञान की जांच',
+            checkBtn: 'उत्तर जांचें',
+            correct: 'सही जवाब!',
+            incorrect: 'फिर से कोशिश करें',
+            explanationTitle: 'व्याख्या:'
+        },
+        ms: {
+            title: 'Pemeriksaan Pengetahuan',
+            checkBtn: 'Semak Jawapan',
+            correct: 'Betul!',
+            incorrect: 'Tidak betul. Cuba lagi.',
+            explanationTitle: 'Penjelasan:'
+        },
+        fr: {
+            title: 'Point de contrôle',
+            checkBtn: 'Vérifier la réponse',
+            correct: 'Correct !',
+            incorrect: 'Incorrect. Réessayez.',
+            explanationTitle: 'Explication :'
+        },
+        es: {
+            title: 'Punto de control',
+            checkBtn: 'Comprobar respuesta',
+            correct: '¡Correcto!',
+            incorrect: 'Incorrecto. Inténtalo de nuevo.',
+            explanationTitle: 'Explicación:'
+        }
+    }[lang] || {
+        title: 'Knowledge Checkpoint',
+        checkBtn: 'Check Answer',
+        correct: 'Correct!',
+        incorrect: 'Incorrect. Try again.',
+        explanationTitle: 'Explanation:'
     }
 
     const handleCheck = () => {

@@ -8,10 +8,8 @@ type SubjectType = 'celebrity' | 'student' | 'ghost'
 
 interface Subject {
     id: SubjectType
-    label_en: string
-    label_hi: string
-    desc_en: string
-    desc_hi: string
+    labels: Record<string, string>
+    descs: Record<string, string>
     baseMass: number // Affects drag resistance
     color: string
     icon: string
@@ -21,10 +19,20 @@ interface Subject {
 const SUBJECTS: Subject[] = [
     {
         id: 'celebrity',
-        label_en: 'Celebrity (Top Quark)',
-        label_hi: 'सेलिब्रिटी (टॉप क्वार्क)',
-        desc_en: 'High interaction with the field. Enormous mass.',
-        desc_hi: 'क्षेत्र के साथ उच्च संपर्क। विशाल द्रव्यमान।',
+        labels: {
+            en: 'Celebrity (Top Quark)',
+            hi: 'सेलिब्रिटी (टॉप क्वार्क)',
+            ms: 'Selebriti (Kuark Atas)',
+            fr: 'Célébrité (Quark Top)',
+            es: 'Celebridad (Quark Cima)'
+        },
+        descs: {
+            en: 'High interaction with the field. Enormous mass.',
+            hi: 'क्षेत्र के साथ उच्च संपर्क। विशाल द्रव्यमान।',
+            ms: 'Interaksi tinggi dengan medan. Jisim yang sangat besar.',
+            fr: 'Forte interaction avec le champ. Masse énorme.',
+            es: 'Gran interacción con el campo. Masa enorme.'
+        },
         baseMass: 0.95,
         color: '#ef4444',
         icon: 'T',
@@ -32,10 +40,20 @@ const SUBJECTS: Subject[] = [
     },
     {
         id: 'student',
-        label_en: 'Student (Electron)',
-        label_hi: 'छात्र (इलेक्ट्रॉन)',
-        desc_en: 'Low interaction with the field. Minimal mass.',
-        desc_hi: 'क्षेत्र के साथ कम संपर्क। न्यूनतम द्रव्यमान।',
+        labels: {
+            en: 'Student (Electron)',
+            hi: 'छात्र (इलेक्ट्रॉन)',
+            ms: 'Pelajar (Elektron)',
+            fr: 'Étudiant (Électron)',
+            es: 'Estudiante (Electrón)'
+        },
+        descs: {
+            en: 'Low interaction with the field. Minimal mass.',
+            hi: 'क्षेत्र के साथ कम संपर्क। न्यूनतम द्रव्यमान।',
+            ms: 'Interaksi rendah dengan medan. Jisim minimum.',
+            fr: 'Faible interaction avec le champ. Masse minimale.',
+            es: 'Baja interacción con el campo. Masa mínima.'
+        },
         baseMass: 0.2,
         color: '#06b6d4',
         icon: 'e⁻',
@@ -43,10 +61,20 @@ const SUBJECTS: Subject[] = [
     },
     {
         id: 'ghost',
-        label_en: 'Ghost (Photon)',
-        label_hi: 'भूत (फोटॉन)',
-        desc_en: 'Zero interaction. Zero mass. Travels at light speed.',
-        desc_hi: 'शून्य संपर्क। शून्य द्रव्यमान। प्रकाश की गति से यात्रा करता है।',
+        labels: {
+            en: 'Ghost (Photon)',
+            hi: 'भूत (फोटॉन)',
+            ms: 'Hantu (Foton)',
+            fr: 'Fantôme (Photon)',
+            es: 'Fantasma (Fotón)'
+        },
+        descs: {
+            en: 'Zero interaction. Zero mass. Travels at light speed.',
+            hi: 'शून्य संपर्क। शून्य द्रव्यमान। प्रकाश की गति से यात्रा करता है।',
+            ms: 'Sifar interaksi. Sifar jisim. Bergerak pada kelajuan cahaya.',
+            fr: 'Zéro interaction. Masse nulle. Voyage à la vitesse de la lumière.',
+            es: 'Cero interacción. Masa nula. Viaja a la velocidad de la luz.'
+        },
         baseMass: 0,
         color: '#eab308',
         icon: 'γ',
@@ -86,12 +114,15 @@ export function HiggsBazaar({ lang = 'en' }: { lang?: string }) {
 
     // Localization Helpers
     const t = {
-        title: lang === 'hi' ? 'द हिग्स बाज़ार' : 'The Higgs Bazaar',
-        desc: lang === 'hi' ? 'भीड़ के माध्यम से कण को ​​खींचें।' : 'Drag the particle through the crowd.',
-        dragTarget: lang === 'hi' ? 'खींचें' : 'DRAG',
-        massLabel: lang === 'hi' ? 'द्रव्यमान (Mass):' : 'Effective Mass:',
-        interactionLabel: lang === 'hi' ? 'हिग्स इंटरेक्शन:' : 'Higgs Interaction:',
-        success: lang === 'hi' ? 'प्रयोग पूरा हुआ!' : 'Experiment Complete!'
+        title: lang === 'hi' ? 'द हिग्स बाज़ार' : lang === 'ms' ? 'Bazar Higgs' : lang === 'fr' ? 'Le Bazar de Higgs' : lang === 'es' ? 'El Bazar de Higgs' : 'The Higgs Bazaar',
+        desc: lang === 'hi' ? 'भीड़ के माध्यम से कण को ​​खींचें।' : lang === 'ms' ? 'Seret zarah melalui orang ramai.' : lang === 'fr' ? 'Faites glisser la particule à travers la foule.' : lang === 'es' ? 'Arrastra la partícula a través de la multitud.' : 'Drag the particle through the crowd.',
+        dragTarget: lang === 'hi' ? 'खींचें' : lang === 'ms' ? 'SERET' : lang === 'fr' ? 'GLISSER' : lang === 'es' ? 'ARRASTRAR' : 'DRAG',
+        massLabel: lang === 'hi' ? 'प्रभावी द्रव्यमान:' : lang === 'ms' ? 'Jisim Berkesan:' : lang === 'fr' ? 'Masse effective :' : lang === 'es' ? 'Masa efectiva:' : 'Effective Mass:',
+        interactionLabel: lang === 'hi' ? 'हिग्स परस्पर क्रिया:' : lang === 'ms' ? 'Interaksi Higgs:' : lang === 'fr' ? 'Interaction de Higgs :' : lang === 'es' ? 'Interacción de Higgs:' : 'Higgs Interaction:',
+        high: lang === 'hi' ? 'उच्च' : lang === 'ms' ? 'TINGGI' : lang === 'fr' ? 'ÉLEVÉE' : lang === 'es' ? 'ALTA' : 'HIGH',
+        none: lang === 'hi' ? 'शून्य' : lang === 'ms' ? 'TIADA' : lang === 'fr' ? 'AUCUNE' : lang === 'es' ? 'NINGUNA' : 'NONE',
+        success: lang === 'hi' ? 'प्रयोग पूरा हुआ!' : lang === 'ms' ? 'Eksperimen Selesai!' : lang === 'fr' ? 'Expérience Terminée !' : lang === 'es' ? '¡Experimento Completado!' : 'Experiment Complete!',
+        retry: lang === 'hi' ? 'पुनः प्रयास करें' : lang === 'ms' ? 'Cuba Lagi' : lang === 'fr' ? 'Essayer un autre' : lang === 'es' ? 'Probar otro' : 'Try Another'
     }
 
     // Initialize the "Bazaar" (the random scattering of Higgs bosons in the track)
@@ -184,7 +215,7 @@ export function HiggsBazaar({ lang = 'en' }: { lang?: string }) {
                         }}
                     >
                         <span className="mr-2 text-lg">{s.icon}</span>
-                        {lang === 'hi' ? s.label_hi : s.label_en}
+                        {s.labels[lang] || s.labels['en']}
                     </button>
                 ))}
             </div>
@@ -192,7 +223,7 @@ export function HiggsBazaar({ lang = 'en' }: { lang?: string }) {
             {/* Stats Panel */}
             <div className="flex justify-between items-center text-sm font-bold uppercase tracking-wider mb-2 px-4 relative z-10" style={{ color: subject.color }}>
                 <div>{t.massLabel} <span className="text-white ml-2">{(subject.baseMass * 100).toFixed(0)}%</span></div>
-                <div>{t.interactionLabel} <span className="text-white ml-2">{subject.particlesRequired > 0 ? 'HIGH' : 'NONE'}</span></div>
+                <div>{t.interactionLabel} <span className="text-white ml-2">{subject.particlesRequired > 0 ? t.high : t.none}</span></div>
             </div>
 
             {/* The Track (The Bazaar) */}
@@ -265,7 +296,7 @@ export function HiggsBazaar({ lang = 'en' }: { lang?: string }) {
 
             {/* Descriptive Context Banner */}
             <div className="mt-8 p-4 bg-white/5 border border-white/10 rounded-xl text-slate-300 text-center leading-relaxed font-medium">
-                {lang === 'hi' ? subject.desc_hi : subject.desc_en}
+                {subject.descs[lang] || subject.descs['en']}
             </div>
 
             {/* Success Overlay */}
@@ -285,7 +316,7 @@ export function HiggsBazaar({ lang = 'en' }: { lang?: string }) {
                             }}
                             className="mt-4 px-6 py-2 bg-white/10 hover:bg-white/20 rounded-full font-bold transition-colors"
                         >
-                            {lang === 'hi' ? 'पुनः प्रयास करें' : 'Try Another'}
+                            {t.retry}
                         </button>
                     </div>
                 </motion.div>

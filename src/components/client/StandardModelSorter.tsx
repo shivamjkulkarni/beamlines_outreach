@@ -10,27 +10,167 @@ type JarType = ParticleType
 
 interface Particle {
     id: string
-    label: string
+    labels: Record<string, string>
     type: ParticleType
     icon: string
     color: string
-    clue_en: string
-    clue_hi: string
+    clues: Record<string, string>
 }
 
 const PARTICLES: Particle[] = [
-    { id: 'up', label: 'Up Quark', type: 'quark', icon: 'u', color: '#ec4899', clue_en: 'I am found inside protons and neutrons. I feel the strong nuclear force.', clue_hi: 'मैं प्रोटॉन और न्यूट्रॉन के अंदर पाया जाता हूं। मैं मजबूत परमाणु बल महसूस करता हूं।' },
-    { id: 'down', label: 'Down Quark', type: 'quark', icon: 'd', color: '#ec4899', clue_en: 'I am heavier than my "Up" sibling. I also feel the strong nuclear force.', clue_hi: 'मैं अपने "अप" भाई से भारी हूं। मैं भी मजबूत परमाणु बल महसूस करता हूं।' },
-    { id: 'electron', label: 'Electron', type: 'lepton', icon: 'e⁻', color: '#06b6d4', clue_en: 'I orbit the atomic nucleus. The strong force completely ignores me.', clue_hi: 'मैं परमाणु नाभिक की परिक्रमा करता हूं। मजबूत बल मुझे पूरी तरह से नजरअंदाज कर देता है।' },
-    { id: 'muon', label: 'Muon', type: 'lepton', icon: 'μ', color: '#06b6d4', clue_en: 'I am like a heavy electron from cosmic rays. The strong force heavily ignores me.', clue_hi: 'मैं ब्रह्मांडीय किरणों से एक भारी इलेक्ट्रॉन की तरह हूं। मजबूत बल मुझे नजरअंदाज कर देता है।' },
-    { id: 'photon', label: 'Photon', type: 'boson', icon: 'γ', color: '#eab308', clue_en: 'I am a packet of pure light. My job is to carry the electromagnetic force.', clue_hi: 'मैं शुद्ध प्रकाश का एक पैकेट हूं। मेरा काम विद्युत चुम्बकीय बल ले जाना है।' },
-    { id: 'gluon', label: 'Gluon', type: 'boson', icon: 'g', color: '#eab308', clue_en: 'I am the "glue" that holds atomic nuclei together. I carry the strong force.', clue_hi: 'मैं वह "गोंद" हूं जो परमाणु नाभिक को एक साथ रखता है। मैं मजबूत बल ले जाता हूँ।' },
+    {
+        id: 'up',
+        type: 'quark',
+        icon: 'u',
+        color: '#ec4899',
+        labels: {
+            en: 'Up Quark',
+            hi: 'अप क्वार्क',
+            ms: 'Kuark Naik',
+            fr: 'Quark Up',
+            es: 'Quark Arriba'
+        },
+        clues: {
+            en: 'I am found inside protons and neutrons. I feel the strong nuclear force.',
+            hi: 'मैं प्रोटॉन और न्यूट्रॉन के अंदर पाया जाता हूं। मैं मजबूत परमाणु बल महसूस करता हूं।',
+            ms: 'Saya ditemui di dalam proton dan neutron. Saya merasakan daya nukleus kuat.',
+            fr: "Je me trouve à l'intérieur des protons et des neutrons. Je ressens la force nucléaire forte.",
+            es: 'Me encuentro dentro de los protones y neutrones. Siento la fuerza nuclear fuerte.'
+        }
+    },
+    {
+        id: 'down',
+        type: 'quark',
+        icon: 'd',
+        color: '#ec4899',
+        labels: {
+            en: 'Down Quark',
+            hi: 'डाउन क्वार्क',
+            ms: 'Kuark Turun',
+            fr: 'Quark Down',
+            es: 'Quark Abajo'
+        },
+        clues: {
+            en: 'I am heavier than my "Up" sibling. I also feel the strong nuclear force.',
+            hi: 'मैं अपने "अप" भाई से भारी हूं। मैं भी मजबूत परमाणु बल महसूस करता हूं।',
+            ms: 'Saya lebih berat daripada pasangan "Naik" saya. Saya juga merasakan daya nukleus kuat.',
+            fr: 'Je suis plus lourd que mon homologue "Up". Je ressens également la force nucléaire forte.',
+            es: 'Soy más pesado que mi hermano "Arriba". También siento la fuerza nuclear fuerte.'
+        }
+    },
+    {
+        id: 'electron',
+        type: 'lepton',
+        icon: 'e⁻',
+        color: '#06b6d4',
+        labels: {
+            en: 'Electron',
+            hi: 'इलेक्ट्रॉन',
+            ms: 'Elektron',
+            fr: 'Électron',
+            es: 'Electrón'
+        },
+        clues: {
+            en: 'I orbit the atomic nucleus. The strong force completely ignores me.',
+            hi: 'मैं परमाणु नाभिक की परिक्रमा करता हूं। मजबूत बल मुझे पूरी तरह से नजरअंदाज कर देता है।',
+            ms: 'Saya mengorbit nukleus atom. Daya kuat mengabaikan saya sepenuhnya.',
+            fr: "J'orbite autour du noyau atomique. La force forte m'ignore complètement.",
+            es: 'Orbito alrededor del núcleo atómico. La fuerza fuerte me ignora por completo.'
+        }
+    },
+    {
+        id: 'muon',
+        type: 'lepton',
+        icon: 'μ',
+        color: '#06b6d4',
+        labels: {
+            en: 'Muon',
+            hi: 'म्यूऑन',
+            ms: 'Muon',
+            fr: 'Muon',
+            es: 'Muón'
+        },
+        clues: {
+            en: 'I am like a heavy electron from cosmic rays. The strong force heavily ignores me.',
+            hi: 'मैं ब्रह्मांडीय किरणों से एक भारी इलेक्ट्रॉन की तरह हूं। मजबूत बल मुझे नजरअंदाज कर देता है।',
+            ms: 'Saya seperti elektron berat daripada sinaran kosmik. Daya kuat mengabaikan saya.',
+            fr: "Je suis comme un électron lourd issu des rayons cosmiques. La force forte m'ignore.",
+            es: 'Soy como un electrón pesado proveniente de rayos cósmicos. La fuerza fuerte me ignora.'
+        }
+    },
+    {
+        id: 'photon',
+        type: 'boson',
+        icon: 'γ',
+        color: '#eab308',
+        labels: {
+            en: 'Photon',
+            hi: 'फोटॉन',
+            ms: 'Foton',
+            fr: 'Photon',
+            es: 'Fotón'
+        },
+        clues: {
+            en: 'I am a packet of pure light. My job is to carry the electromagnetic force.',
+            hi: 'मैं शुद्ध प्रकाश का एक पैकेट हूं। मेरा काम विद्युत चुम्बकीय बल ले जाना है।',
+            ms: 'Saya adalah paket cahaya tulen. Tugas saya adalah membawa daya elektromagnet.',
+            fr: 'Je suis un paquet de lumière pure. Mon rôle est de transporter la force électromagnétique.',
+            es: 'Soy un paquete de luz pura. Mi trabajo es transportar la fuerza electromagnética.'
+        }
+    },
+    {
+        id: 'gluon',
+        type: 'boson',
+        icon: 'g',
+        color: '#eab308',
+        labels: {
+            en: 'Gluon',
+            hi: 'ग्लूऑन',
+            ms: 'Gluon',
+            fr: 'Gluon',
+            es: 'Gluón'
+        },
+        clues: {
+            en: 'I am the "glue" that holds atomic nuclei together. I carry the strong force.',
+            hi: 'मैं वह "गोंद" हूं जो परमाणु नाभिक को एक साथ रखता है। मैं मजबूत बल ले जाता हूँ।',
+            ms: 'Saya adalah "pelekat" yang mengikat nukleus atom bersama. Saya membawa daya kuat.',
+            fr: 'Je suis la "glu" qui maintient les noyaux atomiques ensemble. Je transporte la force forte.',
+            es: 'Soy el "pegamento" que mantiene unidos los núcleos atómicos. Transporto la fuerza fuerte.'
+        }
+    },
 ]
 
-const JARS: { id: JarType; label: string; rules_en: string; rules_hi: string }[] = [
-    { id: 'quark', label: 'Quarks', rules_en: 'Rule: Must interact via the Strong Nuclear Force to build matter.', rules_hi: 'नियम: पदार्थ बनाने के लिए मजबूत परमाणु बल के माध्यम से बातचीत करनी चाहिए।' },
-    { id: 'lepton', label: 'Leptons', rules_en: 'Rule: Does NOT feel the Strong Nuclear Force.', rules_hi: 'नियम: मजबूत परमाणु बल महसूस नहीं करता है।' },
-    { id: 'boson', label: 'Bosons', rules_en: 'Rule: Does not build matter; acts as a Force Carrier.', rules_hi: 'नियम: पदार्थ का निर्माण नहीं करता; बल वाहक के रूप में कार्य करता है।' },
+const JARS: { id: JarType; rules: Record<string, string> }[] = [
+    {
+        id: 'quark',
+        rules: {
+            en: 'Rule: Must interact via the Strong Nuclear Force to build matter.',
+            hi: 'नियम: पदार्थ बनाने के लिए मजबूत परमाणु बल के माध्यम से बातचीत करनी चाहिए।',
+            ms: 'Peraturan: Mesti berinteraksi melalui Daya Nukleus Kuat untuk membina jirim.',
+            fr: 'Règle : Doit interagir via la Force Nucléaire Forte pour former la matière.',
+            es: 'Regla: Debe interactuar mediante la Fuerza Nuclear Fuerte para construir materia.'
+        }
+    },
+    {
+        id: 'lepton',
+        rules: {
+            en: 'Rule: Does NOT feel the Strong Nuclear Force.',
+            hi: 'नियम: मजबूत परमाणु बल महसूस नहीं करता है।',
+            ms: 'Peraturan: TIDAK merasakan Daya Nukleus Kuat.',
+            fr: 'Règle : Ne ressent PAS la Force Nucléaire Forte.',
+            es: 'Regla: NO siente la Fuerza Nuclear Fuerte.'
+        }
+    },
+    {
+        id: 'boson',
+        rules: {
+            en: 'Rule: Does not build matter; acts as a Force Carrier.',
+            hi: 'नियम: पदार्थ का निर्माण नहीं करता; बल वाहक के रूप में कार्य करता है।',
+            ms: 'Peraturan: Tidak membina jirim; bertindak sebagai Pembawa Daya.',
+            fr: 'Règle : Ne forme pas la matière ; agit comme un Porteur de Force.',
+            es: 'Regla: No construye materia; actúa como Portador de Fuerza.'
+        }
+    },
 ]
 
 export function StandardModelSorter({ lang = 'en' }: { lang?: string }) {
@@ -76,14 +216,15 @@ export function StandardModelSorter({ lang = 'en' }: { lang?: string }) {
 
     // Localization Helpers
     const t = {
-        title: lang === 'hi' ? 'विघटन पहेली' : 'Deduction Puzzle',
-        desc: lang === 'hi' ? 'सुराग प्रकट करने के लिए एक कण पर टैप करें। फिर इसे सही नियम से मिलाएं।' : 'Tap a particle to reveal its clue. Tap and drag it to match the correct rule.',
-        success: lang === 'hi' ? 'बहुत बढ़िया! आपने सभी कणों का सही ढंग से अनुमान लगाया।' : 'Excellent! You successfully deduced all particle types.',
-        scanPrompt: lang === 'hi' ? 'सुराग (Clue) के लिए किसी कण पर टैप करें...' : 'Tap a particle for a clue...',
+        title: lang === 'hi' ? 'विघटन पहेली' : lang === 'ms' ? 'Teka-teki Deduksi' : lang === 'fr' ? 'Énigme de Déduction' : lang === 'es' ? 'Rompecabezas de Deducción' : 'Deduction Puzzle',
+        desc: lang === 'hi' ? 'सुराग प्रकट करने के लिए एक कण पर टैप करें। फिर इसे सही नियम से मिलाएं।' : lang === 'ms' ? 'Ketik zarah untuk mendedahkan petunjuk. Ketik dan seret untuk memadankannya dengan peraturan yang betul.' : lang === 'fr' ? "Touchez une particule pour révéler son indice. Glissez-la pour l'associer à la bonne règle." : lang === 'es' ? 'Toca una partícula para revelar su pista. Arrástrala para hacerla coincidir con la regla correcta.' : 'Tap a particle to reveal its clue. Tap and drag it to match the correct rule.',
+        success: lang === 'hi' ? 'बहुत बढ़िया! आपने सभी कणों का सही ढंग से अनुमान लगाया।' : lang === 'ms' ? 'Cemerlang! Anda berjaya mendeduksi semua jenis zarah.' : lang === 'fr' ? 'Excellent ! Vous avez déduit avec succès tous les types de particules.' : lang === 'es' ? '¡Excelente! Has deducido con éxito todos los tipos de partículas.' : 'Excellent! You successfully deduced all particle types.',
+        scanPrompt: lang === 'hi' ? 'सुराग (Clue) के लिए किसी कण पर टैप करें...' : lang === 'ms' ? 'Ketik zarah untuk petunjuk...' : lang === 'fr' ? 'Touchez une particule pour un indice...' : lang === 'es' ? 'Toca una partícula para ver una pista...' : 'Tap a particle for a clue...',
+        scanLabel: lang === 'hi' ? 'स्कैन:' : lang === 'ms' ? 'IMBAS:' : lang === 'fr' ? 'SCAN :' : lang === 'es' ? 'ESCANEO:' : 'SCAN:',
         jars: {
-            quark: lang === 'hi' ? 'क्वार्क' : 'Quarks',
-            lepton: lang === 'hi' ? 'लेप्टान' : 'Leptons',
-            boson: lang === 'hi' ? 'बोसॉन' : 'Bosons'
+            quark: lang === 'hi' ? 'क्वार्क' : lang === 'ms' ? 'Kuark' : lang === 'fr' ? 'Quarks' : lang === 'es' ? 'Quarks' : 'Quarks',
+            lepton: lang === 'hi' ? 'लेप्टॉन' : lang === 'ms' ? 'Lepton' : lang === 'fr' ? 'Leptons' : lang === 'es' ? 'Leptones' : 'Leptons',
+            boson: lang === 'hi' ? 'बोसॉन' : lang === 'ms' ? 'Boson' : lang === 'fr' ? 'Bosons' : lang === 'es' ? 'Bosones' : 'Bosons'
         }
     }
 
@@ -191,7 +332,7 @@ export function StandardModelSorter({ lang = 'en' }: { lang?: string }) {
                                     {t.jars[jar.id as keyof typeof t.jars]}
                                 </h4>
                                 <div className="opacity-80 text-[0.85em] text-center mb-[1em] z-10 min-h-[3em] leading-relaxed text-slate-300 font-medium tracking-wide">
-                                    {lang === 'hi' ? jar.rules_hi : jar.rules_en}
+                                    {jar.rules[lang] || jar.rules['en']}
                                 </div>
 
                                 {/* Deposited Particles container */}
@@ -209,7 +350,7 @@ export function StandardModelSorter({ lang = 'en' }: { lang?: string }) {
                                             <span className="text-[1.2em] font-bold text-white drop-shadow-md">{p.icon}</span>
                                             {/* Reveal label only on hover after being sorted */}
                                             <span className="absolute -bottom-8 bg-black/80 px-2 py-1 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-50">
-                                                {p.label}
+                                                {p.labels[lang] || p.labels['en']}
                                             </span>
                                         </motion.div>
                                     ))}
@@ -249,8 +390,8 @@ export function StandardModelSorter({ lang = 'en' }: { lang?: string }) {
                                         {inspectedParticle.icon}
                                     </div>
                                     <p className="text-[1.05em] font-bold tracking-wide" style={{ color: inspectedParticle.color }}>
-                                        <span className="text-slate-400 mr-2 uppercase text-xs">SCAN:</span>
-                                        &quot;{lang === 'hi' ? inspectedParticle.clue_hi : inspectedParticle.clue_en}&quot;
+                                        <span className="text-slate-400 mr-2 uppercase text-xs">{t.scanLabel}</span>
+                                        &quot;{inspectedParticle.clues[lang] || inspectedParticle.clues['en']}&quot;
                                     </p>
                                 </motion.div>
                             ) : (

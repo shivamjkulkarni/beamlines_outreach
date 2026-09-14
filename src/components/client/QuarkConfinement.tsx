@@ -23,15 +23,16 @@ export function QuarkConfinement({ lang = 'en' }: { lang?: string }) {
 
     // Localization
     const t = {
-        title: lang === 'hi' ? 'द अनब्रेकेबल स्प्रिंग' : 'The Unbreakable Spring',
-        desc: lang === 'hi' ? 'एंटीक्वार्क को दूर खींचकर मजबूत बल को स्ट्रेच करें।' : 'Stretch the Strong Force by dragging the Antiquark away.',
-        energy: lang === 'hi' ? 'ऊर्जा संचय' : 'Energy Accumulation',
-        snap_warn: lang === 'hi' ? 'महत्वपूर्ण तनाव!' : 'CRITICAL TENSION!',
-        q_label: lang === 'hi' ? 'क्वार्क' : 'Quark',
-        aq_label: lang === 'hi' ? 'एंटीक्वार्क' : 'Antiquark',
-        success_title: lang === 'hi' ? 'E = mc² प्रमाणित!' : 'E = mc² Verified!',
-        success_desc: lang === 'hi' ? 'ग्लूऑन ऊर्जा द्रव्यमान में परिवर्तित होकर एक नया मेसन जोड़ा बना!' : 'The gluon energy converted into mass, creating a new Meson pair!',
-        reset: lang === 'hi' ? 'पुनर्स्थापित करें' : 'Reset Experiment'
+        title: lang === 'hi' ? 'द अनब्रेकेबल स्प्रिंग' : lang === 'ms' ? 'Musim Bunga yang Tidak Boleh Putus' : lang === 'fr' ? 'Le Ressort Incassable' : lang === 'es' ? 'El Muelle Indestructible' : 'The Unbreakable Spring',
+        desc: lang === 'hi' ? 'एंटीक्वार्क को दूर खींचकर मजबूत बल को स्ट्रेच करें।' : lang === 'ms' ? 'Regangkan Daya Kuat dengan menyeret Antikuark menjauh.' : lang === 'fr' ? "Étirez la force forte en éloignant l'antiquark." : lang === 'es' ? 'Estira la fuerza fuerte alejando el antiquark.' : 'Stretch the Strong Force by dragging the Antiquark away.',
+        energy: lang === 'hi' ? 'ऊर्जा संचय' : lang === 'ms' ? 'Pengumpulan Tenaga' : lang === 'fr' ? "Accumulation d'Énergie" : lang === 'es' ? 'Acumulación de Energía' : 'Energy Accumulation',
+        snap_warn: lang === 'hi' ? 'महत्वपूर्ण तनाव!' : lang === 'ms' ? 'KETEGANGAN KRITIKAL!' : lang === 'fr' ? 'TENSION CRITIQUE !' : lang === 'es' ? '¡TENSIÓN CRÍTICA!' : 'CRITICAL TENSION!',
+        q_label: lang === 'hi' ? 'क्वार्क' : lang === 'ms' ? 'Kuark' : lang === 'fr' ? 'Quark' : lang === 'es' ? 'Quark' : 'Quark',
+        aq_label: lang === 'hi' ? 'एंटीक्वार्क' : lang === 'ms' ? 'Antikuark' : lang === 'fr' ? 'Antiquark' : lang === 'es' ? 'Antiquark' : 'Antiquark',
+        new_mass: lang === 'hi' ? 'नया द्रव्यमान' : lang === 'ms' ? 'JISIM BAHARU' : lang === 'fr' ? 'NOUVELLE MASSE' : lang === 'es' ? 'NUEVA MASA' : 'NEW MASS',
+        success_title: lang === 'hi' ? 'E = mc² प्रमाणित!' : lang === 'ms' ? 'E = mc² Disahkan!' : lang === 'fr' ? 'E = mc² Vérifié !' : lang === 'es' ? '¡E = mc² Verificado!' : 'E = mc² Verified!',
+        success_desc: lang === 'hi' ? 'ग्लूऑन ऊर्जा द्रव्यमान में परिवर्तित होकर एक नया मेसन जोड़ा बना!' : lang === 'ms' ? 'Tenaga gluon bertukar menjadi jisim, mencipta pasangan Meson baharu!' : lang === 'fr' ? "L'énergie des gluons s'est convertie en masse, créant une nouvelle paire de mésons !" : lang === 'es' ? '¡La energía de los gluones se convirtió en masa, creando un nuevo par de mesones!' : 'The gluon energy converted into mass, creating a new Meson pair!',
+        reset: lang === 'hi' ? 'पुनर्स्थापित करें' : lang === 'ms' ? 'Tetapkan Semula Eksperimen' : lang === 'fr' ? "Réinitialiser l'expérience" : lang === 'es' ? 'Reiniciar experimento' : 'Reset Experiment'
     }
 
     // Effect to mount dimensions
@@ -168,7 +169,7 @@ export function QuarkConfinement({ lang = 'en' }: { lang?: string }) {
                                 <div className="w-16 h-16 rounded-full bg-pink-500 flex items-center justify-center font-bold text-xl shadow-[0_0_20px_rgba(236,72,153,0.5)] z-20">u</div>
                                 <div className="w-8 h-[6px] bg-emerald-500/50 -mx-1 z-10" />
                                 <div className="w-16 h-16 rounded-full bg-emerald-500 border-2 border-white flex items-center justify-center font-bold text-xl shadow-[0_0_30px_rgba(16,185,129,0.8)] z-20">
-                                    ū <span className="absolute -top-8 text-xs text-emerald-400 font-bold tracking-widest w-[100px] text-center">NEW MASS</span>
+                                    ū <span className="absolute -top-8 text-xs text-emerald-400 font-bold tracking-widest w-[100px] text-center">{t.new_mass}</span>
                                 </div>
                             </motion.div>
 
@@ -180,7 +181,7 @@ export function QuarkConfinement({ lang = 'en' }: { lang?: string }) {
                                 className="flex items-center"
                             >
                                 <div className="w-16 h-16 rounded-full bg-emerald-500 border-2 border-white flex items-center justify-center font-bold text-xl shadow-[0_0_30px_rgba(16,185,129,0.8)] z-20">
-                                    u <span className="absolute -top-8 text-xs text-emerald-400 font-bold tracking-widest w-[100px] text-center">NEW MASS</span>
+                                    u <span className="absolute -top-8 text-xs text-emerald-400 font-bold tracking-widest w-[100px] text-center">{t.new_mass}</span>
                                 </div>
                                 <div className="w-8 h-[6px] bg-blue-500/50 -mx-1 z-10" />
                                 <div className="w-16 h-16 rounded-full bg-blue-500 flex items-center justify-center font-bold text-xl shadow-[0_0_20px_rgba(59,130,246,0.5)] z-20">ū</div>

@@ -39,7 +39,7 @@ export default async function TopicPage({ params }: { params: Promise<{ lang: st
                 li: (props: React.PropsWithChildren) => <li className="pl-2">{props.children}</li>,
                 strong: (props: React.PropsWithChildren) => <strong className="font-bold text-white drop-shadow-sm">{props.children}</strong>,
                 blockquote: (props: React.PropsWithChildren) => <blockquote className="border-l-4 border-neon-violet pl-6 my-8 py-2 italic text-slate-400 bg-white/5 rounded-r-lg">{props.children}</blockquote>,
-                MathGate: MathGate,
+                MathGate: (props: React.ComponentProps<typeof MathGate>) => <MathGate lang={lang} {...props} />,
                 Cyclotron: (props: React.PropsWithChildren & { lang?: string }) => <Cyclotron lang={lang} {...props} />,
                 InductionCoil: (props: React.PropsWithChildren & { lang?: string }) => <InductionCoil lang={lang} {...props} />,
                 HiggsBazaar: (props: React.PropsWithChildren & { lang?: string }) => <HiggsBazaar lang={lang} {...props} />,
